@@ -11,14 +11,14 @@
     <span class="fixed border bottom left"
       ><a href="/"><b>ytmous</b></a> - Anonymous Youtube Proxy</span
     >
-    <a class="fixed border bottom right" id="sbtn" href="#sbox">Search</a>
+    <a class="fixed border bottom right" id="sbtn" href="#sbox">検索</a>
     <div id="sbox" class="border fixed bottom right popup">
       <form action="/s" method="GET">
         <input
           name="q"
           class="border"
           type="text"
-          placeholder="Search video...."
+          placeholder="YouTubeを検索…"
           value="<%= query %>"
         />
       </form>
@@ -105,7 +105,7 @@
             >
             <% } %>
             <br>
-            <small><%= video.uploadedAt %> • Duration: <b><%= video.isLive ? "LIVE" : video.duration %></b></small>
+            <small><%= video.uploadedAt %> • 動画時間: <b><%= video.isLive ? "LIVE" : video.duration %></b></small>
           </div>
         </div>
         <% } else if (video.type === "playlist") { %>
@@ -136,12 +136,12 @@
     </div>
     <% if (page > 1) { %>
     <a class="fixed border left" style="bottom: 30px" href="/s?q=<%= query %>&p=<%= page-1 %>"
-      >Previous Page</a
+      >前のページ</a
     >
     <% } %>
     <% if (!(page > 1) || res.items.length) { %>
     <a class="fixed border right" style="bottom: 30px" href="/s?q=<%= query %>&p=<%= page+1 %>"
-      >Next Page</a
+      >次のページ</a
     >
     <% } %>
     <style>
