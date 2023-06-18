@@ -27,13 +27,13 @@
 
     <% if (prev) { %>
     <a class="fixed border bottom left" href="/cm/<%= id %>?<%- (replyToken ? "replyToken=" : "continuation=") + encodeURIComponent(prev) %>"
-      >Previous Page</a
+      >前のページ</a
     >
     <% } %>
 
     <% if (comments.continuation) { %>
     <a class="fixed border bottom right" href="/cm/<%= id %>?<%- (replyToken ? "replyToken=" : "continuation=") + encodeURIComponent(comments.continuation) %><%= thisID ? "&prev=" + encodeURIComponent(thisID) : "" %>"
-      >Next Page</a
+      >次のページ</a
     >
     <% } %>
     <style>
