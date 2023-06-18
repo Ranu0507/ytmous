@@ -28,7 +28,7 @@
       <div class="rVideo">
         <a href="/c/<%= channel.author.channelID %>"><% if (channel.author.bestAvatar) { %><img lazy src="/yt3<%- (new URL(channel.author.bestAvatar.url)).pathname %>" style="padding: 25px; width: 90px;"/><% } %></a>
         <div class="rVideoInfo">
-          <small><%= channel.estimatedItemCount %> videos</small><br>
+          <small><%= channel.estimatedItemCount %> 個の動画</small><br>
           <h2><%= channel.author.name %></h2>
           <small><%= channel.lastUpdated %></small><br>
           <pre><%= channel.description %></pre>
@@ -51,18 +51,18 @@
             /><% } %>
             <%= video.author.name %></span
           ><br>
-          <small>Duration: <b><%= video.isLive ? "LIVE" : video.duration %></b></small>
+          <small>動画時間: <b><%= video.isLive ? "LIVE" : video.duration %></b></small>
         </div>
       </div>
       <% }); %>
     </div>
     <% if (page > 1) { %>
     <a class="fixed border left" style="bottom: 30px" href="/c/<%= channel.id %>?p=<%= page-1 %>"
-      >Previous Page</a
+      >前のページ</a
     >
     <% } %>
     <a class="fixed border right" style="bottom: 30px" href="/c/<%= channel.id %>?p=<%= page+1 %>"
-      >Next Page</a
+      >次のページ</a
     >
     <style>
       body {
