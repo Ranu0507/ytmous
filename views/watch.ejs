@@ -42,14 +42,14 @@
     <span class="fixed border bottom left" style="z-index: 4;"
       ><a href="/"><b>ytmous</b></a> - Anonymous Youtube Proxy</span
     >
-    <a class="fixed border bottom right" style="z-index: 4;" id="sbtn" href="#sbox">Search</a>
+    <a class="fixed border bottom right" style="z-index: 4;" id="sbtn" href="#sbox">検索</a>
     <div id="sbox" class="border fixed bottom right popup">
       <form action="/s" method="GET">
         <input
           name="q"
           class="border"
           type="text"
-          placeholder="Search video...."
+          placeholder="YouTubeを検索…"
         />
       </form>
     </div>
@@ -75,13 +75,13 @@
       <% }); %>
       </marquee>
       <% } else { %>
-      <span>No comments for this video.</span>
+      <span>この動画にはコメントはありません。</span>
       <% } %>
     </div>
 
     <div id="comments" class="border popup fixed bottom left">
       <iframe loading="lazy" src="/cm/<%= id %>"></iframe><br>
-      <a href="#"><small>Close</small></a>
+      <a href="#"><small>閉じる</small></a>
     </div>
 
     <!-- Video Player -->
@@ -99,13 +99,13 @@
         <% } %>
 
         <ul>
-          <li><a href="/s/<%= id %>">Video</a></li>
-          <li><a href="/s/<%= info.formats.filter(i => i.hasAudio && !i.hasVideo)[0].itag %>">Audio</a></li>
-          <li><a href="/s/<%= id %>" download>Video (Download)</a></li>
-          <li><a href="/s/<%= info.formats.filter(i => i.hasAudio && !i.hasVideo)[0].itag %>" download>Audio (Download)</a></li>
+          <li><a href="/s/<%= id %>">動画</a></li>
+          <li><a href="/s/<%= info.formats.filter(i => i.hasAudio && !i.hasVideo)[0].itag %>">音声</a></li>
+          <li><a href="/s/<%= id %>" download>動画 (ダウンロード)</a></li>
+          <li><a href="/s/<%= info.formats.filter(i => i.hasAudio && !i.hasVideo)[0].itag %>" download>音声 (ダウンロード)</a></li>
           <% if (captions && captions.length) { %>
           <% captions.forEach(c => { %>
-          <li><a href="/cc/<%= id %>?vssId=<%= c.vssId %>&fmt=vtt" download>Subtitle (WebVTT): <%= c.name %></a></li>
+          <li><a href="/cc/<%= id %>?vssId=<%= c.vssId %>&fmt=vtt" download>サブタイトル (WebVTT): <%= c.name %></a></li>
           <% }); %>
           <% } %>
         </ul>
@@ -121,14 +121,14 @@
           /><% } %>
           <a href="/c/<%= info.videoDetails.author.id %>"
             ><%= info.videoDetails.author.name %></a
-          ><small style="color: gray;"> • <%= info.videoDetails.author.subscriber_count %> subscribers.</small></h4
+          ><small style="color: gray;"> • <%= info.videoDetails.author.subscriber_count %> 購読者.</small></h4
         >
       </div>
       <!-- Video Information -->
       <div id="vidInfo">
         <!-- Quality Selection -->
         <details class="border right" id="qs">
-          <summary>Quality Selection</summary>
+          <summary>品質の選択</summary>
           <ul>
           <% info.formats.filter(i => !i.hasAudio && !i.isDashMPD).forEach(i => { %>
             <li><a href="#" onclick="<%= `cq(${i.itag}, ${info.formats.filter(i => i.hasAudio && !i.hasVideo)[0].itag})` %>"><b><%= i.qualityLabel %></b> <%= i.mimeType %></a></li>
@@ -140,10 +140,10 @@
           ><%- (info.videoDetails.description || "").replace(/\n/g, "<br />")
           %></span
         ><br><br>
-        <small>Likes: <b><%= info.videoDetails.likes || 0 %></b></small><br>
-        <small>Dislikes: <b><%= info.videoDetails.dislikes || 0 %></b></small><br>
-        <small>Viewers: <b><%= info.videoDetails.viewCount %></b></small><br>
-        <small>Category: <b><%= info.videoDetails.category %></b></small><br>
+        <small>高評価: <b><%= info.videoDetails.likes || 0 %></b></small><br>
+        <small>低評価: <b><%= info.videoDetails.dislikes || 0 %></b></small><br>
+        <small>参照数: <b><%= info.videoDetails.viewCount %></b></small><br>
+        <small>カテゴリー: <b><%= info.videoDetails.category %></b></small><br>
         <small>Uploaded at <b><%= info.videoDetails.uploadDate %></b></small><br>
         <small>Published at <b><%= info.videoDetails.publishDate %></b></small><br>
         <small>Private video: <b><%= info.videoDetails.isPrivate ? "yes" : "no" %></b></small><br>
