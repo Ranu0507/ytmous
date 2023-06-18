@@ -40,18 +40,18 @@
         <div class="rVideoInfo">
           <h4><a href="/w/<%= video.id %>"><%= video.title %></a></h4>
           <span><a href="/c/<%= video.author.channelID %>"> <%= video.author.name %></a></span><br>
-          <small>Duration: <b><%= video.isLive ? "LIVE" : video.duration %></b></small>
+          <small>動画時間: <b><%= video.isLive ? "LIVE" : video.duration %></b></small>
         </div>
       </div>
       <% }); %>
     </div>
     <% if (page > 1) { %>
     <a class="fixed border left" style="bottom: 30px" href="/p/<%= playlist.id %>?p=<%= page-1 %>"
-      >Previous Page</a
+      >前のページ</a
     >
     <% } %>
     <a class="fixed border right" style="bottom: 30px" href="/p/<%= playlist.id %>?p=<%= page+1 %>"
-      >Next Page</a
+      >次のページ</a
     >
     <style>
       body {
